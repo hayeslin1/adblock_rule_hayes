@@ -1,0 +1,24 @@
+## suixingpay
+
+
+# IP 
+IP-CIDR,22.50.0.0/16,DIRECT
+IP-CIDR,10.3.0.0/16,DIRECT
+IP-CIDR,10.30.0.0/16,DIRECT
+IP-CIDR,172.16.0.0/16,DIRECT
+IP-CIDR,192.168.0.0/16,DIRECT
+IP-CIDR,127.0.0.0/24,DIRECT
+
+
+# 域名关键字
+host-keyword, suixingpay, direct
+host-keyword, vbill, direct
+host-keyword, cogolinks, direct
+host-keyword, xlsuixing, direct
+
+# 
+host-keyword, italent, direct
+host-keyword, team, direct
+
+# 
+GEOIP,CN,DIRECT
