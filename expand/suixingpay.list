@@ -11,14 +11,14 @@ IP-CIDR,127.0.0.0/24,DIRECT
 
 
 # 域名关键字
-host-keyword, suixingpay, direct
-host-keyword, vbill, direct
-host-keyword, cogolinks, direct
-host-keyword, xlsuixing, direct
+DOMAIN-SUFFIX, suixingpay.com, direct
+DOMAIN-SUFFIX, vbill.com, direct
+DOMAIN-SUFFIX, cogolinks.com, direct
+DOMAIN-SUFFIX, xlsuixing.com, direct
 
 # 
-host-keyword, italent, direct
-host-keyword, team, direct
+DOMAIN-SUFFIX, italent.com, direct
+DOMAIN-KEYWORD, team, direct
 
 # 
 GEOIP,CN,DIRECT
