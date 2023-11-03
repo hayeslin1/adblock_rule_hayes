@@ -20,5 +20,9 @@ DOMAIN-SUFFIX, xlsuixing.com, direct
 DOMAIN-SUFFIX, italent.com, direct
 DOMAIN-KEYWORD, team, direct
 
+domain-suffix, notion.so, direct
+
+
+
 # 
 GEOIP,CN,DIRECT
