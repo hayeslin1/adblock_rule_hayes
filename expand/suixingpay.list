@@ -20,7 +20,10 @@ DOMAIN-SUFFIX, xlsuixing.com, direct
 DOMAIN-SUFFIX, italent.com, direct
 DOMAIN-KEYWORD, team, direct
 
-domain-suffix, notion.so, direct
+# 自定义
+DOMAIN-SUFFIX, notion.so, direct
+DOMAIN-SUFFIX, postman.com, direct
+DOMAIN-KEYWORD, postman, direct
 
 
 
