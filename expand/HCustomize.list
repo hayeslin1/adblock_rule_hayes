@@ -21,8 +21,8 @@ DOMAIN-SUFFIX, italent.com, direct
 DOMAIN-KEYWORD, team, direct
 
 # 自定义
-DOMAIN-SUFFIX, apple.com, direct
-DOMAIN-SUFFIX, icloud.com, direct
+# DOMAIN-SUFFIX, apple.com, direct
+# DOMAIN-SUFFIX, icloud.com, direct
 DOMAIN-SUFFIX, notion.so, direct
 DOMAIN-SUFFIX, postman.com, direct
 DOMAIN-KEYWORD, postman, direct
