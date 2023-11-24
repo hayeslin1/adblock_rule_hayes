@@ -26,7 +26,6 @@ DOMAIN-KEYWORD, team, direct
 DOMAIN-SUFFIX, notion.so, direct
 DOMAIN-SUFFIX, postman.com, direct
 DOMAIN-KEYWORD, postman, direct
-DOMAIN-SUFFIX, bing.com, direct
 
 # 
 GEOIP,CN,DIRECT
