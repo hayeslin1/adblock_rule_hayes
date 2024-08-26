@@ -15,15 +15,7 @@ DOMAIN-SUFFIX, suixingpay.com, DIRECT
 DOMAIN-SUFFIX, vbill.com, DIRECT
 DOMAIN-SUFFIX, cogolinks.com, DIRECT
 DOMAIN-SUFFIX, xlsuixing.com, DIRECT
-
-# 
 DOMAIN-SUFFIX, italent.com, DIRECT
-DOMAIN-KEYWORD, team, DIRECT
-
-# 自定义
-DOMAIN-SUFFIX, notion.so, DIRECT
-DOMAIN-SUFFIX, postman.com, DIRECT
-DOMAIN-KEYWORD, postman, DIRECT
 
 # 
 GEOIP,CN,DIRECT
