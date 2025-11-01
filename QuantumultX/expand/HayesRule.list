@@ -15,9 +15,9 @@ DOMAIN-SUFFIX, suixingpay.com, DIRECT
 DOMAIN-SUFFIX, vbill.com, DIRECT
 DOMAIN-SUFFIX, cogolinks.com, DIRECT
 DOMAIN-SUFFIX, xlsuixing.com, DIRECT
-DOMAIN-SUFFIX, italent.com, DIRECT
-DOMAIN-SUFFIX, sexemby.com, DIRECT
-
+DOMAIN-SUFFIX, postman.com, DIRECT
+DOMAIN-SUFFIX, tradingview.com, OutSide
+DOMAIN-KEYWORD, diabrowser, 美国节点
 
 # 
 GEOIP,CN,DIRECT
