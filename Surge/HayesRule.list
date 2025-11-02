@@ -16,6 +16,3 @@ DOMAIN-SUFFIX, vbill.com, DIRECT
 DOMAIN-SUFFIX, cogolinks.com, DIRECT
 DOMAIN-SUFFIX, xlsuixing.com, DIRECT
 DOMAIN-SUFFIX, postman.com, DIRECT
-
-# 
-GEOIP,CN,DIRECT
