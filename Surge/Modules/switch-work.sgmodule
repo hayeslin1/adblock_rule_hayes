@@ -2,20 +2,13 @@
 #!name=切换公司模式
 #!desc=切换公司模式
 #!category= 公司模式
-#!arguments=REMOTE_URL:机场订阅
-#!arguments-desc=[参数设置] REMOTE_URL: 写你机场的名字,默认开启单订阅
-
 
 
 
 [General]
-skip-proxy = 192.168.0.0/24, 10.0.0.0/8, 172.16.0.0/12, 127.0.0.1, localhost, *.local
 dns-server = 223.5.5.5, 172.16.80.100, system
 encrypted-dns-server = off
 
-
-[Proxy Group]
-节点URL = select, update-interval=10800, policy-path={{{REMOTE_URL}}}, hidden=1, no-alert=0, include-all-proxies=0
 
 
 [Rule]
