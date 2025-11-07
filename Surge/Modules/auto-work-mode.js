@@ -17,10 +17,16 @@ const MODULE_NAME = "work-mode";   // 要控制的模块名
     const shouldEnable = currentSSID === TARGET_SSID;
 
     $surge.setModuleState(MODULE_NAME, shouldEnable);
+
+    console.log(`[AutoWorkMode] SSID: ${currentSSID}, Module "${MODULE_NAME}" is now ${shouldEnable ? 'enabled' : 'disabled'}.`);
+
     $done();
   } catch (err) {
     console.log(`[AutoWorkMode] Error: ${err}`);
     $surge.setModuleState(MODULE_NAME, false);
+
+    console.log(`[AutoWorkMode] SSID: ${currentSSID}, Module "${MODULE_NAME}" is now ${shouldEnable ? 'enabled' : 'disabled'}.`, err);
+
     $done();
   }
 })();
