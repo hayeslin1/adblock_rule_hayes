@@ -1,0 +1,121 @@
+# > wifi-dns-switch.sgmodule
+# Surge macOS v6.4+ module: auto switch DNS based on Wi-Fi SSID
+# Author: Dia
+# Description:
+# - When Wi-Fi SSID == "vbill-jishu": set dns-server = 223.5.5.5
+# - Otherwise: use system default (remove dns-server override)
+# Notes:
+# - Requires Surge macOS 6.4+
+# - Install via URL (Module -> Add Remote Module)
+# - On SSID change, Surge triggers the script and updates DNS accordingly
+
+[General]
+# No static dns-server here; we manage it dynamically in script
+
+[Script]
+# The script runs on network change and at startup to ensure DNS is correct.
+wifi-dns-switch = type=event, pattern=network-change, script-path=wifi-dns-switch.js, timeout=10
+
+# Also run once on startup for consistency
+wifi-dns-switch-start = type=cron, cronexp=*/1 * * * *, script-path=wifi-dns-switch.js, timeout=10, allow-remote
+
+[MITM]
+# Not needed; leave blank unless you use MITM elsewhere
+
+[Module]
+name = WiFi DNS Switch (vbill-jishu)
+author = Dia
+version = 1.0.0
+description = Auto sets dns-server=223.5.5.5 on Wi-Fi "vbill-jishu", restores system DNS otherwise.
+homepage = https://example.com
+
+[Script-Resources]
+# Embedded JS script used by the module.
+wifi-dns-switch.js = <>
+(function () {
+  /*
+    Surge event script: Switch DNS based on current Wi-Fi SSID.
+
+    Behavior:
+    - If Wi-Fi SSID === "vbill-jishu" -> set dns-server = 223.5.5.5
+    - Else -> remove dns-server override (use system default)
+
+    Implementation details:
+    - Uses $surge API in macOS 6.4+: $environment, $system, $notify, $persistStore
+    - Uses $surge.network() to get current SSID
+    - Updates config dynamically via $surge.setConfig()
+    - idempotent: only changes when required
+  */
+
+  const TARGET_SSID = "vbill-jishu";
+  const TARGET_DNS = "223.5.5.5";
+
+  function getCurrentSSID() {
+    try {
+      const net = $surge.network();
+      // macOS: net.wifi.ssid when connected via Wi-Fi
+      return net?.wifi?.ssid || "";
+    } catch (e) {
+      return "";
+    }
+  }
+
+  function getCurrentGeneral() {
+    try {
+      const conf = $surge.getConfig(); // returns current effective config object
+      return conf?.General || {};
+    } catch (e) {
+      return {};
+    }
+  }
+
+  function setDnsServer(valueOrNull) {
+    // valueOrNull: string DNS (e.g., "223.5.5.5") or null to remove the key
+    const conf = $surge.getConfig() || {};
+    conf.General = conf.General || {};
+    const before = conf.General["dns-server"] ?? null;
+
+    if (valueOrNull === null) {
+      // Remove custom DNS to use system default
+      if (before !== null) {
+        delete conf.General["dns-server"];
+      } else {
+        // No change needed
+        return false;
+      }
+    } else {
+      // Set to target DNS
+      if (before === valueOrNull) {
+        // Already set correctly
+        return false;
+      }
+      conf.General["dns-server"] = valueOrNull;
+    }
+
+    // Apply change
+    $surge.setConfig(conf);
+    return true;
+  }
+
+  function main() {
+    const ssid = getCurrentSSID();
+    const general = getCurrentGeneral();
+    const currentDns = general["dns-server"] ?? null;
+
+    if (ssid === TARGET_SSID) {
+      const changed = setDnsServer(TARGET_DNS);
+      if (changed) {
+        $notify("Wi-Fi DNS Switch", `SSID: ${ssid}`, `Applied dns-server = ${TARGET_DNS}`);
+      }
+    } else {
+      const changed = setDnsServer(null);
+      if (changed) {
+        $notify("Wi-Fi DNS Switch", `SSID: ${ssid || "Unknown/Not Wi-Fi"}`, "Removed dns-server override (system default)");
+      }
+    }
+  }
+
+  main();
+  $done();
+})();
+<>
