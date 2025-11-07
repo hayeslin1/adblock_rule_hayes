@@ -2,6 +2,9 @@
 #!name=切换公司模式
 #!desc=切换公司模式
 #!category= 公司模式
+#!arguments=REMOTE_URL:机场订阅
+#!arguments-desc=[参数设置] REMOTE_URL: 写你机场的名字,默认开启单订阅
+
 
 
 
@@ -12,7 +15,7 @@ encrypted-dns-server = off
 
 
 [Proxy Group]
-节点URL = select, update-interval=10800, policy-path={{{remoteUrl}}}, hidden=1, no-alert=0, include-all-proxies=0
+节点URL = select, update-interval=10800, policy-path={{{REMOTE_URL}}}, hidden=1, no-alert=0, include-all-proxies=0
 
 
 [Rule]
