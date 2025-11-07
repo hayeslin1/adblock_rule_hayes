@@ -7,8 +7,12 @@
 
 [General]
 skip-proxy = 192.168.0.0/24, 10.0.0.0/8, 172.16.0.0/12, 127.0.0.1, localhost, *.local
-dns-server = 172.16.80.100, system
+dns-server = 223.5.5.5, 172.16.80.100, system
 encrypted-dns-server = off
+
+
+[Proxy Group]
+节点URL = select, update-interval=10800, policy-path={{{remoteUrl}}}, hidden=1, no-alert=0, include-all-proxies=0
 
 
 [Rule]
