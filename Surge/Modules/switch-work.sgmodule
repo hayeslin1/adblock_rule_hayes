@@ -8,7 +8,7 @@
 [General]
 skip-proxy = 192.168.0.0/24, 10.0.0.0/8, 172.16.0.0/12, 127.0.0.1, localhost, *.local
 dns-server = 172.16.80.100, system
-# encrypted-dns-server 
+encrypted-dns-server = off
 
 
 [Rule]
