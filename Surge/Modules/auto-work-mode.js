@@ -2,7 +2,7 @@
 // 自动根据 SSID 启用/禁用 work-mode 模块
 
 const TARGET_SSID = "vbill-jishu";        // 目标 SSID（区分大小写）
-const MODULE_NAME = "Auto Work Mode";   // 要控制的模块名
+const MODULE_NAME = "work-mode";   // 要控制的模块名
 
 (async () => {
   try {
