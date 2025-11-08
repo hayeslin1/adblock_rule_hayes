@@ -42,6 +42,7 @@ function httpAPI(method, path, body) {
 
     if (!all.has(TARGET_MODULE)) {
       log("module not found: " + TARGET_MODULE + " (检查模块名称是否完全一致)");
+      log("请导入“公司模式”模块后重试，模块地址：https://github.com/hayeslin1/adblock_rule_hayes/raw/refs/heads/main/Surge/Modules/WorkMode.sgmodule");
       $done();
       return;
     }
